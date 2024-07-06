@@ -45,6 +45,7 @@
         .container {
             padding: 10px 40px;
             position: relative;
+
             background-color: inherit;
             width: 50%;
             opacity: 0;
@@ -76,7 +77,13 @@
             left: -16px;
         }
 
+        .content:hover {
+            box-shadow: white;
+        }
+
         .content {
+            border: 2px solid white;
+
             padding: 20px 30px;
             background-color: gray;
             position: relative;
@@ -213,7 +220,7 @@
             }, {
                 opacity: 1,
                 y: 0,
-                duration: 0.6, // Adjust duration as needed
+                duration: 0.6,
                 scrollTrigger: {
                     trigger: container,
                     start: "top 80%",
@@ -221,14 +228,12 @@
                     toggleActions: "play none none reverse",
                     markers: true,
                     onEnter: () => {
-                        // Increase the height of the timeline line as each container is scrolled into view
                         gsap.to(timelineLine, {
                             scaleY: (index + 1) / totalContainers,
                             ease: "none",
                             duration: 0.5
                         });
 
-                        // Zoom in effect for the content
                         gsap.to(content, {
                             scale: 1,
                             opacity: 1,
@@ -237,14 +242,12 @@
                         });
                     },
                     onLeaveBack: () => {
-                        // Decrease the height of the timeline line as each container is scrolled out of view
                         gsap.to(timelineLine, {
                             scaleY: index / totalContainers,
                             ease: "none",
                             duration: 0.5
                         });
 
-                        // Reset zoom effect
                         gsap.to(content, {
                             scale: 0.8,
                             opacity: 0,
