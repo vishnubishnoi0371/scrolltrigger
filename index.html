@@ -1,0 +1,261 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GSAP ANIMATION ROADMAP</title>
+    <style>
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            background-color: #474e5d;
+            font-family: Helvetica, sans-serif;
+            overflow-x: hidden;
+        }
+
+        .timeline {
+            position: relative;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding-top: 50px;
+        }
+
+        .text-center {
+            text-align: center;
+        }
+
+        .text-white {
+            color: white;
+        }
+
+        .timeline-line {
+            position: absolute;
+            width: 6px;
+            background-color: gray;
+            top: 4%;
+            bottom: 7%;
+            left: 50%;
+            margin-left: -3px;
+            transform-origin: top;
+            transform: scaleY(0);
+        }
+
+        .container {
+            padding: 10px 40px;
+            position: relative;
+            background-color: inherit;
+            width: 50%;
+            opacity: 0;
+            transform: translateY(20px);
+        }
+
+        .container::after {
+            content: '';
+            position: absolute;
+            width: 25px;
+            height: 25px;
+            right: -17px;
+            background-color: gray;
+            border: 4px solid gray;
+            top: 15px;
+            border-radius: 50%;
+            z-index: 1;
+        }
+
+        .left {
+            left: 0;
+        }
+
+        .right {
+            left: 50%;
+        }
+
+        .right::after {
+            left: -16px;
+        }
+
+        .content {
+            padding: 20px 30px;
+            background-color: gray;
+            position: relative;
+            border-radius: 6px;
+            color: white;
+            transform-origin: center;
+            transform: scale(0.8);
+            opacity: 0;
+        }
+
+        @media screen and (max-width: 767.9px) {
+            .timeline-line {
+                left: 31px;
+            }
+
+            .container {
+                width: 100%;
+                padding-left: 70px;
+                padding-right: 25px;
+            }
+
+            .container::before {
+                left: 60px;
+                border: medium solid white;
+                border-width: 10px 10px 10px 0;
+                border-color: transparent gray transparent transparent;
+            }
+
+            .left::after,
+            .right::after {
+                left: 15px;
+            }
+
+            .right {
+                left: 0%;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <section style="height: 80vh;"></section>
+    <h1 class="text-center text-white">ScrollTrigger-Gsap</h1>
+    <div class="timeline">
+        <div class="timeline-line"></div>
+        <div class="container left">
+            <div class="content">
+                <h2>Lounch Website Platform</h2>
+                <p>Lorem ipsum dolor sit amet, quo ei simul congue exerci, ad nec admodum perfecto mnesarchum, vim ea
+                    primis ea eam.</p>
+            </div>
+        </div>
+        <div class="container right">
+            <div class="content">
+                <h2>Lounch Website Platform</h2>
+                <p>Lorem ipsum dolor sit amet, quo ei simul congue exerci, ad nec admodum perfecto mnesarchum, vim ea
+                    primis ea eam.</p>
+            </div>
+        </div>
+        <div class="container left">
+            <div class="content">
+                <h2>Lounch Website Platform</h2>
+                <p>Lorem ipsum dolor sit amet, quo ei simul congue exerci, ad nec admodum perfecto mnesarchum, vim ea
+                    primis ea eam.</p>
+            </div>
+        </div>
+        <div class="container right">
+            <div class="content">
+                <h2>Lounch Website Platform</h2>
+                <p>Lorem ipsum dolor sit amet, quo ei simul congue exerci, ad nec admodum perfecto mnesarchum, vim ea
+                    primis ea eam.</p>
+            </div>
+        </div>
+        <div class="container left">
+            <div class="content">
+                <h2>Lounch Website Platform</h2>
+                <p>Lorem ipsum dolor sit amet, quo ei simul congue exerci, ad nec admodum perfecto mnesarchum, vim ea
+                    primis ea eam.</p>
+            </div>
+        </div>
+        <div class="container right">
+            <div class="content">
+                <h2>Lounch Website Platform</h2>
+                <p>Lorem ipsum dolor sit amet, quo ei simul congue exerci, ad nec admodum perfecto mnesarchum, vim ea
+                    primis ea eam.</p>
+            </div>
+        </div>
+        <div class="container left">
+            <div class="content">
+                <h2>Lounch Website Platform</h2>
+                <p>Lorem ipsum dolor sit amet, quo ei simul congue exerci, ad nec admodum perfecto mnesarchum, vim ea
+                    primis ea eam.</p>
+            </div>
+        </div>
+        <div class="container right">
+            <div class="content">
+                <h2>Lounch Website Platform</h2>
+                <p>Lorem ipsum dolor sit amet, quo ei simul congue exerci, ad nec admodum perfecto mnesarchum, vim ea
+                    primis ea eam.</p>
+            </div>
+        </div>
+        <div class="container left">
+            <div class="content">
+                <h2>Lounch Website Platform</h2>
+                <p>Lorem ipsum dolor sit amet, quo ei simul congue exerci, ad nec admodum perfecto mnesarchum, vim ea
+                    primis ea eam.</p>
+            </div>
+        </div>
+        <div class="container right">
+            <div class="content">
+                <h2>Lounch Website Platform</h2>
+                <p>Lorem ipsum dolor sit amet, quo ei simul congue exerci, ad nec admodum perfecto mnesarchum, vim ea
+                    primis ea eam.</p>
+            </div>
+        </div>
+
+    </div>
+    <section style="height: 50vh;"></section>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.10.4/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.10.4/ScrollTrigger.min.js"></script>
+    <script>
+        gsap.registerPlugin(ScrollTrigger);
+
+        const timelineLine = document.querySelector(".timeline-line");
+        const containers = document.querySelectorAll(".container");
+        const totalContainers = containers.length;
+
+        containers.forEach((container, index) => {
+            const content = container.querySelector(".content");
+
+            gsap.fromTo(container, {
+                opacity: 0,
+                y: 20
+            }, {
+                opacity: 1,
+                y: 0,
+                duration: 0.6, // Adjust duration as needed
+                scrollTrigger: {
+                    trigger: container,
+                    start: "top 80%",
+                    end: "top 60%",
+                    toggleActions: "play none none reverse",
+                    markers: true,
+                    onEnter: () => {
+                        // Increase the height of the timeline line as each container is scrolled into view
+                        gsap.to(timelineLine, {
+                            scaleY: (index + 1) / totalContainers,
+                            ease: "none",
+                            duration: 0.5
+                        });
+
+                        // Zoom in effect for the content
+                        gsap.to(content, {
+                            scale: 1,
+                            opacity: 1,
+                            duration: 0.6,
+                            ease: "power3.out"
+                        });
+                    },
+                    onLeaveBack: () => {
+                        // Decrease the height of the timeline line as each container is scrolled out of view
+                        gsap.to(timelineLine, {
+                            scaleY: index / totalContainers,
+                            ease: "none",
+                            duration: 0.5
+                        });
+
+                        // Reset zoom effect
+                        gsap.to(content, {
+                            scale: 0.8,
+                            opacity: 0,
+                            duration: 0.3,
+                            ease: "power3.inOut"
+                        });
+                    }
+                }
+            });
+        });
+    </script>
+</body>
+
+</html>
