@@ -35,7 +35,7 @@
             width: 6px;
             background-color: gray;
             top: 4%;
-            bottom: 7%;
+            bottom: 8%;
             left: 50%;
             margin-left: -3px;
             transform-origin: top;
@@ -226,7 +226,7 @@
                     start: "top 80%",
                     end: "top 60%",
                     toggleActions: "play none none reverse",
-                    markers: true,
+                    markers: false,
                     onEnter: () => {
                         gsap.to(timelineLine, {
                             scaleY: (index + 1) / totalContainers,
